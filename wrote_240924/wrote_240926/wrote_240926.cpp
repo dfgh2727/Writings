@@ -55,3 +55,32 @@ OutputDebugStringA();
 
 MessageBoxA(); //이걸 주로 사용할 것이다.
 //확인을 눌러야 다음으로 진행한다. 그리고 터지게 만들자.
+//nullptr?
+
+
+//
+// typedef와 using은 의미가 같은 문법이지만
+// 수업에서는 typedef를 주로 쓸 것이다...
+// 
+
+//const char* == LPCSTR
+//const char* == PCSTR
+//같다고 함...뭐지;;;;;
+
+#define AAA int // define AAA 스페이스 뒤로 전부 복붙. 마침(;) 표시를 할 필요 없다. 게다가 ;쓰면 에러나기 쉬워짐.
+//#은 전처리문을 의미한다. #define은 복붙이다. 아주 긴 문장을 축약하고 싶을때 쓴다.
+// \(백슬래시)를 치면 여러줄의 문장도 복붙 가능하다.
+// 근데 가독성이 떨어져. F12로 확인하자.
+
+//매크로 함수
+//
+#define MUL (VALUE) // VALUE*VALUE
+//
+
+//class 
+// 멤버변수와 멤버함수는 필수가 아니다.
+// TextRPG002inheritance.cpp를 확인해보자.
+// 
+
+//
+//
