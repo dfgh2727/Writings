@@ -82,5 +82,17 @@ MessageBoxA(); //이걸 주로 사용할 것이다.
 // TextRPG002inheritance.cpp를 확인해보자.
 // 
 
+//class operator
+class Player{public: };
+Player NewPlayer1;
+Player NewPlayer0;
+Player NewPlayer1 = NewPlayer0;
+// 이게 왜 되는걸까?
+// 생성자 복사 ... 컴파일러가 자동적으로 만들어준다.(디폴트 대입 연산자)
+// 근데 복사는 연산량이 많이 필요하니 최적화 면에서 좋지 않다.
+// delete, 함수를 사용하지 않는다고 말하는 것.
 //
+// 연산자 겹지정...연산자는 함수같은거야.
 //
+
+
