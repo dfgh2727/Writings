@@ -16,6 +16,7 @@ class MyInt
 public:
     MyInt& operator =(const int& _Other)
     {
+        int Value;
         Value = _Other;
 
         return *this; //여기서 *this는 정확하게? MyInt* const 다.
@@ -23,8 +24,9 @@ public:
     //...MyInt로 썼다면 이 MyInt로 들어가는게 아니고 새로운 MyInt 메모리 영역에 값이 들어간다.
 
 
-    MyInt(int Value)
+    MyInt(int Value0)
     {
+        
     }
 
 protected:
@@ -139,7 +141,7 @@ void Test1()
 {
 
 }
-//선언과 구현을 분리해하면 함수의 순서는 중요하지 않다.
+//선언과 구현을 분리하면 함수의 순서는 중요하지 않다.
 // 
 // 선언은 .h, 구현은 .cpp
 // 선언과 구현을 합치면 문제가 많이 생긴다.
