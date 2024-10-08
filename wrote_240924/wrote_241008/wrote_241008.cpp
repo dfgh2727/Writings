@@ -132,7 +132,11 @@ enum class TestEnumClass
 // static을 extern 같이 생각하라
 //클래스 안에서 멤버변수에 static 못 붙이지만 static const는 된다.
 
+// ********* 용어 설명 추가됨 ************
 
+//
+// 
+//
 
 
 
