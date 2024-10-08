@@ -114,11 +114,24 @@ enum Jobtype
 // enum보다 되도로 이걸 쓰자.
 
 enum class TestEnumClass
-{
-
+{ 
+	Value0,
+	Value1,
+	Value2,
+	Value3
+  
 };
 //enum과 enumclass는 명시하지 않으면 기본적으로 4바이트다.
 // enum class JobTypeClass : __int8 (명시 방법)
+
+
+// 참고로 enum 안에 함수 못 넣는다.
+// 함수 안에 enum 선언할 수 있지만 이렇게 안 쓸거다. (쌤 방식이 아니다.)
+// 클래스 안에 클래스 쓸 수 있다. 
+// enum은 헤더나 cpp 어디에도 가능
+// static을 extern 같이 생각하라
+//클래스 안에서 멤버변수에 static 못 붙이지만 static const는 된다.
+
 
 
 
