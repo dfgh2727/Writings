@@ -1,4 +1,4 @@
-<TextRPG Last>
+<<TextRPG Last>>
 
  비주얼 스튜디오도 완벽하지 않다. 
 
@@ -52,5 +52,26 @@
 
  전투 후 돌아갈 곳이 없다.
  전투 후 마을로 돌아가는 코드 넣기
+ (과제를 하긴 했는데 뭔가 코드 내부를 이해하고 있다는 생각은 안 드네;;)
+ (진짜 틀렸음;;)
 
+ 본격적인 전투 코드 입력 (FightUnit.h와 .cpp)
+ UFightUnit 작성
+ Actor.cpp는 상속받아서 UObject, UStatusUnit, UFightUnit으로 참조형식으로 형변환 가능하다.  
+ (UObject* Ptr = this; 업캐스팅이다.)
 
+ GetDamage()작성, 이전과 다르게 StatusUnit을 상속받지 않기 때문에 return에 함수 째로 넣어서 식을 썼다;;
+ BeginPlay로 Init을 불러와야 하는데 아무것도 없어서 터졌다. 내용을 채웠다.
+
+ 공격 주고 받는걸 화면에 보이게 만들었다.
+ IsDeath()도 만들었다. 그리고 승리하거나 패배하면 while문에서 break.
+
+ 사실 Player와 Monster이 둘로 구조를 만드는 것은 좋지 않다. 짤 수 있는 시나리오의 다양성이 떨어진다.
+ (플레이어vs몹이 아니라 몹vs몹은 구현할 수 없게 된다.)
+ 그래서 Left와 Right로 바꿨다...
+ 
+ (Player와 Monster가 class 말단으로 갈 수록 좋다.)
+
+ GetDamage virtual선언, APlayer에 상속
+
+ BeginPlay를 잘 확인해봐라.
