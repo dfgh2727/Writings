@@ -23,7 +23,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wrote_241010", "wrote_24101
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wrote_241011", "wrote_241011\wrote_241011.vcxproj", "{CA6DDC96-ACC6-48F4-B753-9F7A3E7C1568}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wrote_241014", "wrote_241014\wrote_241014.vcxproj", "{2FEF50BD-3201-42CA-90BC-09336BB4840A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wrote_241014 M", "wrote_241014\wrote_241014.vcxproj", "{2FEF50BD-3201-42CA-90BC-09336BB4840A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
