@@ -15,8 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="wrote_241015.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
+    <ClCompile Include="wrote_241015.cpp" />
   </ItemGroup>
 </Project>

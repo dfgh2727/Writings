@@ -15,6 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="wrote_241008.cpp" />
+    <ClCompile Include="wrote_241021 M.cpp" />
   </ItemGroup>
 </Project>
