@@ -78,4 +78,6 @@ void Test(const std::string Text) //이렇게 쓰면 안된다!
 
 //lib로 진행
 
+//Bin 빌드 결과물이 올라가도록
+
  
