@@ -48,10 +48,34 @@ if (Test == "AAAA")  // false
 // Test == "AAAA"는 원래 성립할 수 없지만, operator== 지정해 놨다.
 // (replace는 나중에)
 
-void Test(const std::string Test) //이렇게 쓰면 안된다!
+void Test(const std::string Text) //이렇게 쓰면 안된다!
 {                                 //레퍼런스로 써야 한다.(8바이트)
+                                  
 
 }
-// std::string Test 
-// 크기가 몇인줄 알고...
+// 일단 크기가 몇인줄 알고;;
+// std::string Text = "AAAA" new가 4번 일어난다.
+// (std::vector = {0,1,2,3} push_back 4번...new 4번)
+// 레퍼런스로 받으면 복사 생성자 호출, 
+// string 값형을 그대로 받으면 new가 다시 발생 (대입연산자)
 //
+
+
+//Map에서 사용한 operator를 다시 생각해보자.
+// 
+// key를 비교해서 노드를 배치했지...
+// Class도 >, ==를 사용해서 비교할 수 있나? 
+// 직접 지정해야 가능하다. 
+// 
+// std::string은 내부에 비교하는 함수들이 있으니 비교 가능.
+//
+
+// 이후 API framework...
+
+//옮기고 나서 질문하기
+
+//필터랑 프로젝트명은 마음대로
+
+//lib로 진행
+
+ 
