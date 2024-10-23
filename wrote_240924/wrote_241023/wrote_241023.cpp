@@ -64,7 +64,7 @@ std::string Text = "Apple";
 // 문자열 상수는 데이터 영역에 이미 메모리가 있는데
 // 또 힙에 할당 시키는건 낭비, 근데 함수는 쓰고 싶고...
 // 
-std::_String_view 
+std::_String_view
 //
 // 
 //단순히 레퍼런스 썼다고 메모리 아꼈다고 생각하면 안된다.
@@ -91,3 +91,58 @@ std::_String_view
 //VS 주석 지우는 방법 
 // (주의! 한 페이지에서만 하기!)
 // ctrl F 누른 후 //.*로 검색 
+
+//게임 엔진 구조
+// 
+// 직접 new를 만드는 경우...Base에 위치
+// 
+// 입력...OS가 담당해. 
+
+//090_function, 091_FunctionEx
+// 
+// 콜백...함수포인터
+// 
+// 가상 함수 테이블도 결국 함수 포인터를 사용한 것...
+// (단 클래스 상속을 통하면 아무데나 쓰지 않게끔 할당하기 좋다.)
+void (*ClickFunction)();
+ClickFunction = PlayerAttack;
+
+//멤버함수 포인터도 별차이 없다.
+void(__thiscall Player::*Playerfunction)();
+// 단, 멤버함수는 호출하려면 객체가 필요하다.
+// 멤버를 적는 순간 그 클래스만 받기로 한정된다. 
+//
+//함수포인터를 쓰기 쉬운 functional이 있다.
+std::function<void()> ClickFunction;
+//제약이 없다. 멤버든 전역이든...
+//
+//std::bind 는 함수의 인자를 채워준다.
+
+//Delegate
+// 한번에 여러개의 함수가 작동할 수 있다면?
+// function chain
+// 
+
+//(다시 API로 돌아가서)
+//
+// 윈도우 창이 선택되면 
+// EngineWindow 의 메시지에서 focus 전달, _Framefucntion 작동, Engineloop가 돌아가게 된다.
+// 그러나
+// 게임은 창이 선택되지 않아도 돌아가고 있기 때문에 
+// 메시지가 없으면 대기하는 GetMessage가 아닌 PeekMessage로 바꾼다.
+// PeekMessage는 메시지를 처리하고 리턴한다.
+// PM_REMOVE, 처리하는 동안 쌓인 메시지를 다 지운다.
+// 
+// 메시지 데드타임, 메시지가 없는 시간에 게임을 돌린다.
+// 
+// (함수)empty 가 false일시 비어있지 않다. 
+
+
+// 창 크기를 조절하고 싶다.
+// 근데 Tick, Render 모두 static선언하긴 그렇고...
+// 그럼 EngineMainWindow를 만들어서
+// 
+// 윈도우 창이 열리면 반드시 loop가 돌아가게 만들었다.
+// 윈도우 창이 0개라면 프로그램은 종료
+// while(WindowCount)
+// 
