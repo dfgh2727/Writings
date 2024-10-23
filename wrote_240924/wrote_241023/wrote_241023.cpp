@@ -56,3 +56,38 @@ IntTest& operator = (const IntTest&& _Testval)
 // 내부에서 전부 처리한다는 의미다.
 // (throw 처리하면 에러난다.)
 // 
+
+//089_StringView
+// (C++14에는 없다)
+// 
+std::string Text = "Apple";
+// 문자열 상수는 데이터 영역에 이미 메모리가 있는데
+// 또 힙에 할당 시키는건 낭비, 근데 함수는 쓰고 싶고...
+// 
+std::_String_view 
+//
+// 
+//단순히 레퍼런스 썼다고 메모리 아꼈다고 생각하면 안된다.
+// string& _Value ... string이 생겨야 참조가 가능하기 때문에 한번 생긴것이다.
+//
+
+// (API로 돌아와서)
+// 
+// EngineWindow.cpp
+// 
+// window창을 하나만 만들겠다.
+// 2개 만들면 터트린다.
+// (window 클래스를 이용해 윈도우 창을 만들 수 있다. 이름을 지정하지 않으면 Default로 자동지정됨)
+//
+//c_str, ErrorText const char*를 리턴하는 함수
+//std::string 안에 char*가 존재한다.
+//
+// map에서 find 함수는 iterator를 리턴한다.
+// contains는 유무를 확인하는 함수. (bool 리턴)
+// 이걸로 window클래스가 존재하는지 확인하는 걸 만들었다. 
+// (find와 contains 모두 잘 숙지해야 한다)
+//
+
+//VS 주석 지우는 방법 
+// (주의! 한 페이지에서만 하기!)
+// ctrl F 누른 후 //.*로 검색 
