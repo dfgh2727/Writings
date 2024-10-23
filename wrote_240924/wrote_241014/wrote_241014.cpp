@@ -147,8 +147,7 @@ int main()
 // 클래스나 함수 위에 다음과 같이 쓰면 된다.
 // template<typename 변수자료형이름(=메타)>
 
-template <typename Type>
-class ...
+//template <typename Type>
 
 // 템플릿 특수화
 // 템플릿이 코드를 만들어내기 전에 내가 한번 만든다.
@@ -163,8 +162,24 @@ class ...
 //(...렌더링 관련된 함수는 외부에 노출되지 않는게 좋다.
 // BackBuffer를 인자로 받게 하는건 좋은 방법이 아니다.)
 
-//
+template<typename Type>
+class IntArray
+{
+public:
+    Type* Values;
 
+    void Test(Type _Test)
+    {
+        _Test;
+    }
+};
+
+
+
+    IntArray<int> Array;
+    IntArray<short> Array;
+    IntArray<int*> Array;
+    IntArray<Monster*> Array;
 
 
 

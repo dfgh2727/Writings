@@ -138,11 +138,14 @@ std::function<void()> ClickFunction;
 // (함수)empty 가 false일시 비어있지 않다. 
 
 
-// 창 크기를 조절하고 싶다.
-// 근데 Tick, Render 모두 static선언하긴 그렇고...
-// 그럼 EngineMainWindow를 만들어서
+// 창 크기를 조절하고 싶다, EngineCore로.
+// 근데 Tick, Render 모두 static선언하면 객체지향이 아니게 된다.
+// EngineMainWindow를 만들어서
 // 
 // 윈도우 창이 열리면 반드시 loop가 돌아가게 만들었다.
 // 윈도우 창이 0개라면 프로그램은 종료
 // while(WindowCount)
 // 
+
+//미리 컴파일된 헤더 만들기
+

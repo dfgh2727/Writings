@@ -102,4 +102,7 @@ for (size_t i = 0; i <10; i++)
 // leak 없애고 uvector를 template로 바꾼다 
 
 
+}
+
+
 
