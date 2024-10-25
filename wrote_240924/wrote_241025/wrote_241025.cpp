@@ -62,12 +62,79 @@ int main()
 // 이 함수가 1초에 몇번 실행 되는가가 곧 프레임이다.
 // 프레임수에 의해 행위 횟수가 결정되면 곤란하다.
 // ...DeltaTime으로 해결하자!
-// 
+
+
 // DeltaTime
-   void APlayer::Tick(float _DeltaTime)
+// void APlayer::Tick(float _DeltaTime)
 // (Tick의 인자로 들어가거나 인자에 곱해서 사용...)
 // Engine이 제공하는 
 // 
+// 프레임수가 다르더라도 그에 대하여 시간에 대한 행위수를 맞춰줄 수 있다.
+// 
+// 
+// #include <Windows.h>   (OS에서 제공하는...시간 재는 기능)
+// 
+// ns단위로 시간을 잴 수 있다. 
+// QueryperformanceCounter ... 초당 몇번?
+// QueryperformanceFrequency ... 여태까지 몇번 실행?
+// 위의 두 함수를 이용해서 시간을 알 수 있다.
+// 
+// #include <chrono>   (std)
+// 
+// TimeCheckStart();
+// TimeCheck ();       앞으로 이 둘을 넣어서 시간을 잰다. (ns 나노 sec)
+// 
+// 그러나 정밀하게 시간을 잴 수록 값의 크기가 급격하게 커진다.
+// int는 금방 over하니 8바이트 정수가 필요하다.
+// 
+// void UEngineAPICore::Tick()
+// {time_t Test = time(nullptr); 
+//  현재 시간을 잰다.
+// }
+//
+
+// (Long == int ...int와 거진 같다.)
+// long long은 __int64
+
+//094_Union
+// 같은 위치에 여러개의 이름을 붙이는 문법
+// 
+// 형변환이 필요 없게된다.
+// 
+// Union Test
+// {
+//  public:
+// 
+// }
+// 
+// 
+// inner unamed struct
+//  
+// 
+// 
+// (C에서 union을 쓰기 위해 typedef union large_interger를 쓴 것일뿐)
 //
 //
+
+union Test
+{
+    int Value0 = 1;
+    float Value1;
+
+    //이렇게 하고 Value1 값을 확인하면 깨진다.
+    //형변환이 필요하다.
+
+};
+
+//float은 실수다.
+//소수점 이하를 표현한다.
+//문제는 연산에서 오차가 생긴다. 따라서 비교연산이 의미가 없어진다. (== 등등)
+//
+
+//double
+// 8바이트 실수
+// 이진법으로 표현했을 때 특정 비트(소수점 비트)를 기준으로 정수부분과 소수부분을 나눈다.
+// 
+// 실수에 f를 안 붙이면 double형(8바이트), f붙이면 float형 실수(4바이트)가 된다.
+// 만약 float에 double을 넣으면 연산을 통해 float으로 변환시키기 때문에 느려지게 된다. 
 //
