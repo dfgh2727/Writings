@@ -75,14 +75,14 @@ int main()
 // #include <Windows.h>   (OS에서 제공하는...시간 재는 기능)
 // 
 // ns단위로 시간을 잴 수 있다. 
-// QueryperformanceCounter ... 초당 몇번?
-// QueryperformanceFrequency ... 여태까지 몇번 실행?
+// QueryperformanceCounter ... 여태까지 몇번 실행?
+// QueryperformanceFrequency ... 초당 몇번?
 // 위의 두 함수를 이용해서 시간을 알 수 있다.
 // 
 // #include <chrono>   (std)
 // 
 // TimeCheckStart();
-// TimeCheck ();       앞으로 이 둘을 넣어서 시간을 잰다. (ns 나노 sec)
+// TimeCheck ();       앞으로 이 둘을 넣어서 시간을 잰다. (마이크로 sec)
 // 
 // 그러나 정밀하게 시간을 잴 수록 값의 크기가 급격하게 커진다.
 // int는 금방 over하니 8바이트 정수가 필요하다.
@@ -138,3 +138,36 @@ union Test
 // 실수에 f를 안 붙이면 double형(8바이트), f붙이면 float형 실수(4바이트)가 된다.
 // 만약 float에 double을 넣으면 연산을 통해 float으로 변환시키기 때문에 느려지게 된다. 
 //
+
+//LARGE_INTEGER 
+// (Long Long QuadPart)
+//
+// UEngineTimer는 EngineAPICore로 ㄱㄱ
+// 
+
+//UEngineTimer
+//
+// count는 1초에 몇번 센다...고정된 값
+// 근데 매번 형변환 하면 번거로우니 아예 double로 선언한다.
+// 
+// DeltaTime은 기본적으로 float으로 사용한다.
+// float이 빠르기 때문이다. 
+// 
+// TimeStart()호출, 시작 시간
+// 
+// 
+// 
+// EngineAPICore
+// DeltaTimer.check()와 GetDeltaTime이 while문을 돌면서 계속 실행된다.
+// 즉, 계속 시간을 잰다.
+// 
+// AddActorLocation (Player.cpp)
+// 초당 n만큼 움직이게 하고 싶다.
+// n == Speed
+// 
+// DeltaTime은 왜 쓰는가?
+// 컴퓨터의 성능과 무관하게 같은 게임 내용을 보여준다.
+//
+
+//(위의 함수로 빠르기 측정이 가능하다.
+// map과 vector라던가. 근데 뭐...별 차이 안 난다.)
