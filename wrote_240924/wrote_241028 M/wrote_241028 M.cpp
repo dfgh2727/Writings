@@ -90,6 +90,28 @@ int main()
 // Map으로 만들고 (puch_back이 아닌 insert)
 // if 등록되지 않은 키를 입력하면 터진다.
 // 
+// vector나 list를 쓸 때 에러가 나면 출력창 맨 위를 보자.(F8을 누르거나...)
 // 
+// Keys[_KeyIndex]가 없으면 node를 만든다.
+// 그리고 내용이 빈 생성자가 없어서 에러가 난다.
 // 
+// Player.cpp
+// 버튼이 눌린 한 순간만 체크하는 기능이 필요하다.
+// UEngineInput::KeyCheck()
+// Iterator로.
+// 명시적이게 한번 받아주는 코드 작성.
+// 
+// void UEngineInput::
+// 함수가 옛날 C스타일로 작성... bool값이 없으니 0!으로 if 문 작성
+// 플랫폼(조이스틱, 키보드...)에 따라 입력 키가 변하므로 Platform에 위치
+// 
+// 게임
+// 
+// BindAction 
+// 어떤 키를 눌렀을 때 복수의 event 발생을 위해.
+// 
+// enum class KeyEvent
+// 
+// KeyCheck(_DeltaTime)
+// void APlayer
 //
