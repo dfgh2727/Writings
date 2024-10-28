@@ -115,3 +115,70 @@ int main()
 // KeyCheck(_DeltaTime)
 // void APlayer
 //
+// Player.cpp
+// 움직일 때 DeltaTime이 필수는 아니니 인자에서 뺀다.
+// GetDeltaTime으로 DeltaTime을 가져다 쓰자.
+// 
+// 인자 없는 함수만 불러내게 만들었다. 
+// Movefunction으로 쓰는 함수는 동일, 벡터로 방향만 다르게
+// 
+
+// (API) 렌더링에 대해 살펴보자
+// 
+// BackGround는 GameMode에서!
+// 컨텐츠용 게임모드, 레벨이 만들어지면 무조건 만들어져야 한다.
+// 게임모드는 레벨마다 만들어야 한다. 그리고 가장 먼저 만들어져야 한다.
+// 
+// 더블 버퍼링
+// 크기가 같은 무언가가 화면 위를 완전히 덮는다면... 지워지고 뜨는 과정을 반복해도
+// 느껴지지 않는다. 
+// 하나의 화면에 모든걸 그리고 그걸 띄운다.
+// 
+// HDC를 만들어서 거기에 열심히 그려도
+// 윈도우 창과 연결되지 않으면 화면에 뜨지 않는다.
+
+// EngineWindow.h
+// 윈도우창의 크기를 지정하는 함수를 쓰자.
+// void UEngineWindow::SetWindowPosAndScale()
+// 윈도우창 타이틀을 제외하고 계산한 크기로 설정하는 함수 사용
+// AdjustWindowRect()
+// 
+// (만약 창의 스타일을 바꾸고 싶다면 common window style을 확인하자. 난 안 함.)
+//
+// 윈도우창 몸통을 시작점으로 두기 때문에 설정을 안 할 시 LeftTop이 음수값이 된다.
+// 그리고 테두리도 크기에 포함되어 있으니 
+// 따라서 창이 뜨는 위치(Pos)를 right-left, bottom-top 으로 설정해야 한다. 
+// 
+// HDC를 이제 2개 만든다. (BackBufferDC, WindowMainDC)
+// 그리는건 WindowMainDC에 그리고 BackBufferDC는 그걸 복붙한다.
+// 
+// void Create(HDC _DC) (load와 같은)
+// 
+// PlayerImage를 WindowMainDC에 복붙(Copy),
+// {(위치), (크기), PlayerImage}
+// 윈도우 창의 크기를 정해야지 BackBuffer의 크기도 정해진다.
+// void UEngineWindow::SetWindowPosAndScale()
+// {
+//     
+// }
+// 
+// 그리고 BackBuffer가 여러번 호출되지 않도록 기존의 것을 삭제하고 새로 만들게 한다.
+// if (nullptr!= BackBufferDC)
+// {
+// }
+// 
+// CreateconpatibleBitmap()
+// 
+// HDC만 있어서는 이미지를 그릴 수 없다.
+// HDC는 이미지 그 자체(HDC Image)
+// 
+// 이미지 = 이미지를 수정할 수 있는 권한(HDC) + 이미지의 데이터 권한(HBITMAP)
+//                                  그린다                          도화지
+// 
+// 붓과 도화지를 연결해주자.
+// SelectObject(NewImageDC, NewBitmap);
+// 
+// HDC를 만들면 Window OS가 자동적으로 1x1 이미지와 연결해 놓는다.(OldBitMap)
+// 따라서 삭제하지 않으면 leak이 발생한다.
+// DeleteObject(OldBitMap)
+// 
