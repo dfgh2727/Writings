@@ -51,6 +51,44 @@ int main()
 // DoubleBuffering에 ScreenClear()를 만든다.
 // 화면 크기만한 직사각형을 만든다. 지우는 것 같이...
 // Render를 시작할 때 그리면 화면이 깨끗하게 보인다. 
-// 
 
-// 12시 30분에 질문 받는다 
+// 플레이 도중 윈도우 창 사이즈를 조절하는 기능은 안 만들었다. 
+//
+
+// 자주 하는 실수
+// void APlayer::BeginPlay()
+// {
+// GetWorld() -> SpawnActor<APlayer>(); 무한 루프
+// }
+// 자기가 자기 자신을 만들지 않는다.
+// 잘못하면 stack overflow 발생함
+//
+
+// 이미지 로드할 때 디렉토리로 간다.
+// 
+// (EngineBase) EngineDirectory
+// GetAllFile();
+// 리소스 폴더를 한번 정해준 뒤 Dir.SetPath();
+// 선택한 확장자의 파일들만 가져온다. GetAllFile()
+// 그리고 이 파일들을 벡터에 담는다. 
+// std::vector<UEngineFile> AllFile = Dir.GetAllFile("*.bmp", "")
+// 
+// 최신 std 기능?!??!
+// std::
+//
+
+//098_StdPath
+// 
+// 파일... 경로를 가진다. 
+// 경로에서 파일명만 뽑아낸다?
+// 
+// 옛날에는 파일명을 직접 찾아서 만들었다. (path.rfind()  뒤에서부터 찾는다.)
+// 
+// 지금은 std filesystem을 사용한다.
+// 파일 경로를 관리하는 기능들로 구성되어 있다.
+// 경로 제어, 파일 삭제, 디렉토리 만들기 등등...
+// 
+// std::filesystem
+// 
+//
+
