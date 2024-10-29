@@ -88,7 +88,48 @@ int main()
 // 파일 경로를 관리하는 기능들로 구성되어 있다.
 // 경로 제어, 파일 삭제, 디렉토리 만들기 등등...
 // 
-// std::filesystem
+// 부모 경로(상위 경로)도 알 수 있다. 
+
+// UEngineFile: public UEnginePath
 // 
+// 파일에 관련된 기능을 제공하는 것도 OS
+// 
+// 자식 클래스 생성자는 부모 클래스 생성자를 호출한다.
+// 이를 명시적으로 표현하는 문법... 생성 체인
+// 
+// !문제점!
+// Debug와 Release의 파일 경로가 다르다.
+// Resource를 어디에 둬야 할까?
+// 
+// bool MoveParentToDirectory();
+// 어떤 파일의 부모 경로(파일)를 탐색한다.
+// 그리고 원하는 디렉토리가 나올 때까지 무한반복하는 함수
+// 실패할 경우를 대비해서 DummyPath에 기존의 경로를 저장해 둔다.
+// while(){현재 경로는 CurPath, append(), 현재 경로에 원하는 파일이 있나? 있다면 break}
+// 실패하면 false return.
+// (UEnginePath delete 해제했다.)
+// 
+// 상대 경로의 핵심...어디서 실행됐는지는 중요하지 않다, 어디서든 똑같이 실행되어야 한다.
+// (경로 직접 입력 금물)
+// 
+// directory를 vector 선언, iterator 사용한다. 
+// _At_end()
+// 
+// IsFile 파일인가?
+// IsDirectory 디렉토리가 존재하나?
+// 
+// namespace
+// OutPutString(); VS출력창에 보이게 하는 함수
+// (헤더에 함수 선언하지 말고...)
+// 
+// 재귀함수 방식으로
+// GetAllFileRecursive()
+// (하위 폴더를 찾고 싶지 않다면 bool _IsRecursive를 false로)
+// 
+// 확장자 구분 기능은....다음에
 //
+
+//리소스 파일 이름 정하는거 잊지 말기
+
+
 
