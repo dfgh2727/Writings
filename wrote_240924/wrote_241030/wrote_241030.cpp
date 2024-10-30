@@ -152,5 +152,23 @@ int main()
 // CopyDC를 
 //
 
+// (png 이미지 편집은 ppt 확인하고)
+// 
+// 텍스처가 다 로딩되면 자르는 작업을 한다.
+// void CuttingSprite (std::string_view _KeyName, )
+// 
+// 편집된 이미지의 간격등 사이즈를 정확하게 알아야 한다.
+// UImageManager
+// 
+// ClearSpriteData()
+// 기존의 sprite를 지우는 함수
+// 
+// Sprite -> ClearSpriteData
+// int X = 
+// int Y = 
+// 
+// 이미지 사이즈가 딱 맞지 않으면 터진다.
+//
+
 
 
