@@ -95,5 +95,30 @@ int main()
 // 그리고 Gdiplus는 leak 발생하니 delete해줘야 함.
 // delete pBitMap;
 // delete pImage;
+ 
+// NewBitmap이 null이면 터진다.
 // 
-
+// 윈도우가 만들어준 메모리...leak이 발생하진 않겠지만 명시적으로 써주겠다.
+// 
+// 릴리즈 순서는 만들어진 순서의 역순으로.
+// 
+// UImageManager, new UEngineWinImage 했으니 소멸자에 Delete
+//
+// 이미지를 어떤 크기로 스프라이트를 만들건가?
+// 자르는 위치의 기준을 왼쪽 위로 (에디터처럼 중심으로 하기엔 힘들다)
+// 0,0에서 이미지 전체 크기
+// Trans.Location = {(0,0)}
+// 
+// 
+// FVector 2D GetImageScale()
+// 컴파일러 <[똑같은 생성자가 2개인데 long이 없으니 int로 할까? float으로 할까?]
+// float으로 하라고 static_cast로 명시적으로 써준다.
+// 
+// 인터페이스를 전담하는 클래스는 나중에 만들고 일단 이미지를 띄워보자.
+// 
+// 모든 actor는 이미지를 셋팅해야하게 만들어 놓겠다.
+// 
+// AActor에서 순환참조가 의심되서 UEnginesSprite 헤더 지우고 전방 선언했다.
+// 
+// 
+// 
