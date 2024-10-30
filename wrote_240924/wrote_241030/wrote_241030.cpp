@@ -87,8 +87,9 @@ int main()
 // 원본 훼손하지 않고 복사본으로 bitmap을 생성한다.
 // Gdiplus::Bitmap* pBitmap = reinterpre
 // 
+// 
 // png의 alpha값을 어떻게 처리할까? color (0, 0, 0, 0)
-//                                                  검은색으로 처리했다.
+//                                       검은색으로 처리했다.
 // &hBitMap 넣어준 포인터에 결과를 넣어준다.
 // Gdiplus::Status가 Ok가 아니면 문제가 생긴거니 터뜨리기.
 // 
@@ -108,6 +109,7 @@ int main()
 // 자르는 위치의 기준을 왼쪽 위로 (에디터처럼 중심으로 하기엔 힘들다)
 // 0,0에서 이미지 전체 크기
 // Trans.Location = {(0,0)}
+// Trans.Scale
 // 
 // 
 // FVector 2D GetImageScale()
@@ -120,5 +122,35 @@ int main()
 // 
 // AActor에서 순환참조가 의심되서 UEnginesSprite 헤더 지우고 전방 선언했다.
 // 
+
+//CurPAth.root_path 무한루프 해결
+
+// 로드할 때 대문자로 로드됨
 // 
+// 방어코드는 꼼꼼하게 해도 부족하다
+// 철저하게!
 // 
+// USpriteData GetSpriteData() 
+// 그리 크지 않으니 값으로 return.
+// 
+// CurData.Image
+// CurData.Transform 
+// 이 둘을 backbuffer에 그린다.
+// 
+// 옛날 그래픽스 라이브러리들은 색깔 기반으로 지운다.
+// 그래서 가장 잘 안쓰는 마젠타를 ignore color로 사용했다.
+// 
+// CurData.Image -> CopyToBit(BackBufferImage, Tranform)
+//                             이 이미지를    이 위치에 복사
+// 
+// bit블릿은 렌더가 제일 빠르지만 크기 조절이 안된다.
+// TransparentBlt
+// 색깔 제외도 되고 이미지의 일부를 처리할 수 있다.
+// 
+// (EngineBase) Math에 class UColor를 만든다. 
+// 
+// CopyDC를 
+//
+
+
+
