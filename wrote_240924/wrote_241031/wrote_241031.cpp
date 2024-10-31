@@ -90,3 +90,65 @@ int main()
 // 
 // World
 //
+//
+// 
+// 언리얼에서 
+// CreateDefaultSubobject는 생성자에서만 만든다.
+// 다른데서 호출하면 터진다.
+// (캐쉬 적중률을 고려하여 디자인된 메모리를 맞춰서 쓰길 원한다.)
+// (캐쉬 적중률...Actor를 쓴다면 Renderer와 Transform을 많이 쓰겠지?
+//  관련있는 기능들은 한 곳에 묶어서 둔다.)
+//
+// BeginPlay는 원래 Actor가 생성될 때 만들어지지 않는다.
+// 객체가 레벨에서 
+// component에 넣어두기만 하자.
+// Tick이 돌기 직전에 실행
+// 
+// Renderer는 Level안에 
+// list의 second 부터 
+// 
+// 시점함수
+// 언제 어떤 함수가 실행되는가...
+// 
+// Renderer에 크기를 정해주자.
+// SpriteRenderer -> SetScale({n, m});
+// 
+// SetcomponentLocation
+// Actor기반으로 한 위치라는것을 잊지마라!
+// 
+// GetActorTransform
+// Actor의 위치를 반영하여 실제 component의 위치를 알 수 있게 했다.
+// 크기는 변함 없으니 그대로.
+// 
+
+// FVector2D SetSpriteScale()
+// Scale값을 return해서 
+//  
+// (ContentsEnum) 
+// ERenderOrder
+// 렌더 순서를 정한다.
+// 
+// USpriteRender
+//
+
+// CreateAnimation
+//
+//
+
+//애니메이션 특정 개체 선택적으로 멈추기, 어떻게 만드는지 들어야 함!
+
+// 이미지를 엔진에서 확대해서 쓰면 프레임이 떨어진다 
+// (Transparent 연산 때문에 부하가 발생)
+// 확대해 놓은 이미지를 render하자
+//
+
+// x값이 8칸(17칸 중)을 초과하면 카메라가 움직임
+// (-)방향으로 움직이지 않는다.
+// 
+// 관성이 있다.
+// 버튼을 눌렀다가 떼도 이동함.
+// 
+// 발이 떨어지면 바로 이미지 변함
+//
+//
+
