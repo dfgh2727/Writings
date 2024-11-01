@@ -34,8 +34,27 @@ void main()
 // 선생님 컴으로 확인해보니 엔진 내의 TransparentBlt를 사용해서 이미지를 편집하니 
 // 프레임이 40배 이하로 떨어진다! 와!
 // 그러니 편집된 이미지를 쓰자.
+
+// Level 바꾸기
 // 
+// NextLevel
+// 다음 프레임이 시작할 때 바뀌게 만들기
 // 
-// 
-// 
+// LevelChangeStart()
+// LevelChangeEnd()
+// (언리얼에는 없는 기능. 메모리를 지우지 않아 Level이 그대로 저장되어 있기 때문에 가능하다.)
 //
+// NextLevel이 null이 아니라면 CurLevel은 바뀔 레벨.
+// Actor list를 돌게 하고
+// NextLevel을 null로 만든다.
+// 
+// 리소스 준비할 때 시간이 많이 걸린다. 
+// DeltaTimer가 지연될 수 있으니 다시 실행. 
+
+// TitleGameMode
+// (SpwanActor)타이틀엔 actor가 필요 없으니 아무거나() 넣어줬다. 
+
+//
+//
+//
+
