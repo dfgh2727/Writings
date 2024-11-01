@@ -20,9 +20,11 @@ void main()
 // Engine의 낮은 단계(중심)로 갈 수록 함수의 인자수가 많다...
 // 
 // void PrintEngineDebugText()
-// 
+
 // 디버깅 기능은 느려도 상관없다. 출시에 필요한 기능이 아니니까.
-// 
+// 대신 release 할 때 기능 끄는거 잊지 말기!
+// (키고 끄는 기능도 넣었다. SwtichDebug() )
+ 
 // 프레임 위치와 FPS(frame per sec)를 띄우는 기능도 추가
 // 
 // FVector를 string으로 쓰는 기능 추가
