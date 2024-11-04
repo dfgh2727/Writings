@@ -74,7 +74,7 @@ int main()
 // 
 // #include <Windows.h>   (OS에서 제공하는...시간 재는 기능)
 // 
-// ns단위로 시간을 잴 수 있다. 
+// ms단위로 시간을 잴 수 있다. 
 // QueryperformanceCounter ... 여태까지 몇번 실행?
 // QueryperformanceFrequency ... 초당 몇번?
 // 위의 두 함수를 이용해서 시간을 알 수 있다.
