@@ -5,7 +5,6 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
 }
 
 // (API)
@@ -80,7 +79,40 @@ if (/*nullptr != _Result*/ && true == Result)     //포인터방식에서 참조
 //그리고 Collision을 가진 부모(AActor)에서 불러온다.
 //     
 // collisionAll은 여러 대상과 충돌할 수 있으니 vector로 처리했다. 
-//
-//
+
 
 // static 선언했다면 반드시 구현!
+
+// float 절반값이 나오는 함수를 만들었다. 
+// hX();
+
+//사각형 충돌의 규칙
+// 
+// (U2DCollision)
+// Dest의 Right가 This의 Left보다 작다면 충돌 불가.
+// (Dest의 Right와 This의 Left가 같다면 둘이 닿았다, 충돌판정)
+// Dest의 Bottom이 This의 Top 보다 크다면 충돌 불가.
+// .
+// .
+// .
+// 등등 위와 같은 조건들을 모두 통과했다면 충돌판정.
+// 
+// 충돌체의 Release
+// Renderer와 관리 구조가 같다.
+// 다른 component와 달리 충돌과 Renderer는 엔진이 따로 관리한다.
+// 
+// destroy를 AActor에 위치시킨다.
+// ...공격해서 몬스터가 destroy 가능하게 만들었다.
+
+// 원 충돌 
+// 
+// FVector2D Len = 나의 중심과 상대 중심 사이의 거리 
+// 
+// FTransform을 원으로 봤을때 반지름은 X의 절반크기를 반지름으로 본다.
+// 
+// 두 원의 반지름의 합이 벡터의 길이보다 크다면 충돌판정.
+// 
+
+
+ 
+
