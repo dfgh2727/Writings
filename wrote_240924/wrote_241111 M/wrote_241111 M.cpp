@@ -64,5 +64,14 @@ int main()
 // CheckCollision
 // 
 // 그리고 Release도 만든다.
+
+// void CollisionEventCheck(_Left, _Right);
+// 
+// 충돌 이벤트 방식
+// 충돌했을때 이전에 충돌했는지 확인해야 한다.
+// 최초 충돌시 충돌대상의 주소값을 저장. 그리고 다시 충돌했을 때 주소값이 존재한다면 Stay() 호출.
+// 충돌 종료시 내부의 주소값 삭제하고 End() 호출
 // 
 // 
+// std::set, value가 없는 map
+//
