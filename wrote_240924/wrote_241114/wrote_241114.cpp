@@ -26,3 +26,12 @@ int main()
 //U2DCollision* ThisCollision = this; 코드 위치 이동....
 // 
 
+// 역재생 기능도 있다!
+
+// Reset 변경사항
+// 
+// ResetLevel ... Level을 삭제하고 다시 만든다.
+// 현재 CurLevel에서 플레이(Tick, Render...등을 돌리는 중)중에 delete 하면 터질 수 있다.
+// 따라서 Level을 모아놓은 list에서 erase만 하고 새로 만든 레벨을 NextLevel로 지정한다.
+// 그리고 NextLevel을 CurLevel로 지정한다.
+//
