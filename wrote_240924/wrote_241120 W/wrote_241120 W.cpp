@@ -15,4 +15,7 @@ int main()
 // 
 // 
 // SetPivotValue()를 통해 직접 Pivot값을 정해줄 수도 있다.
-
+//
+// float으로 인해 생기는 오차를 버리자. floorf
+// 떨리는 현상 제거...
+//
