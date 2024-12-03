@@ -9,7 +9,6 @@
 
 // region 
 // 묶어준다.
-// 
 
 int main()
 {
