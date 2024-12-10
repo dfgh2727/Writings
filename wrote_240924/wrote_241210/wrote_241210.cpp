@@ -8,13 +8,11 @@ int main()
     std::cout << "Hello World!\n";
 }
 
+// 오늘 한 것
 // 
+// view matrix
 // 
-// 
+// 투영행렬
+// 직교투영과 원근투영
 // 
 
-// 
-// 
-// 
-// 
-// 
