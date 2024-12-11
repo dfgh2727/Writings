@@ -51,22 +51,17 @@
 
 //원근투영
 //
-//  2가지 각도가 필요하다.(xz평면, yz평면)
-// 
-//
 //                              FovAngle = x축에서 바라봤을때 보이는 각도 (yz평면의 각도)
 //       (여기서 쓰는 _Width와 _Height는 화면의 크기가 아닌 비율을 정의하기 위한 값이다.)
 void PerspectiveFov(float _FovAngle, float _Width, float Height, float _Near, float _Far)
 {                        
-
+    //Fov를 반으로 나누어서 직각삼각형을 이용해 값을 사용.
 }
-//   (yz평면)
+
+// 3행([2])의 w는 변하기 전의 z값이다.
+// 나중에 w를 1.0f로 바꾼다.
+// https://openmynotepad.tistory.com/102
 // 
-//          /
-//         /
-//        /      
-//      @ ＼
-//  (카메라)＼
-//            ＼
-//
+//  
+// 
 
