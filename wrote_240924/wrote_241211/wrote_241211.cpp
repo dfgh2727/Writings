@@ -75,6 +75,6 @@ void PerspectiveFov(float _FovAngle, float _Width, float Height, float _Near, fl
 // 단순히 헤더만 첨가한다고 해당하는 내용(cpp)을 사용할 수는 없다.
 // lib의 경우 pragma comment로 cpp의 내용을 사용 가능하게 만들어야 한다.
 // 근데 dll은 다르다.
-//
+// 
 //
 
