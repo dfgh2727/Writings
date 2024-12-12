@@ -40,7 +40,6 @@ int main()
 {
     class Test
     {
-
         int intVal;
         bool boolVal;
     };
