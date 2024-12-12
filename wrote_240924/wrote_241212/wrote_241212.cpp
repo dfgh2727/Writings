@@ -62,3 +62,17 @@
 //   
 // 
 // 
+
+// 100_Shared Ptr
+// 
+// std::shared_ptr<클래스명> 객체명 = std::make_shared<클래스명>;
+// 
+// new를 선언해도 leak이 남지 않는다. std::shared_ptr 내부에서 메모리를 알아서 관리한다.
+// (ptr을 쓰지 않을 때(= nullptr) delete 해준다.)
+// delete를 따로 할 필요가 없다.
+// 
+// 그러나 어딘가에서 이 포인터가 존재한다면 delete되지 않는다.
+// 쓰지 않는 ptr는 반드시 nullptr로 초기화 해야 한다. 
+//
+// 단점이 한 가지 있다.
+//
