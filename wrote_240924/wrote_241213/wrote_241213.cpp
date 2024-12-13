@@ -52,5 +52,27 @@
 // 다른 클래스에 대한 의존도를 말한다.
 // 의존도가 높을 수록 결합성이 높은 클래스라고 한다.
 // 결합성이 낮을 수록 좋다.
-//
+
+// IContentsCore 
+// 인터페이스, 어떤 함수를 구현해야하는지 알려주는 정도의 구조
+// 객체와 되지 않는다.
+// UContentsCore가 상속받는다.( = 엔진이 제공하는 인터페이스 상속받음)
+// 
+// void UContentsCore::EngineStart()에서 윈도우 창의 크기를 설정했다.
+// mainwindow를 건들 수 없게끔 만들되 위치와 크기만 조절할 수 있게 만든 것.
+// 
+// UEngineCore::EngineStart()에서 상대경로를 사용해 dll을 로드한다.
+// 직접 dll 이름을 넣어야 한다.
+// 
+// CreateContentsCoreDefine(UContentsCore); 
+// (...GetProcAddress를 한번은 해야 한다.)
+// 
+// ContentsCore를 만드는 함수의 이름은 CreateContentsCore로 정해졌다
+// 
+// ...결국 EngineCore와 ContentsCore를 분리시킨거다.
+// 컨텐츠 부분을 동적 로딩하기 위한 구조. (중간에 수정하기 용이하게)
+// -> 따라서 컨텐츠 dll 경로가 필요하다. 
+// 
+// Core는 Shared_ptr을 통해 관리되니 nullptr로 만들면 소멸자 호출된다.
+// 
 //
