@@ -90,7 +90,57 @@
 // 언리얼에선 Relative라고 한다.
 // 
 // 자식은 부모의 모든 값을 물려받는다. (크기, 위치 등...)
+// 즉, 부모가 커지면 자식도 커진다.
+
+// Level의 Actor 관리 기능...
+// std::shared_ptr<ActorType> SpawnActor()
+// 템플릿은 일종의 복붙이니까
 // 
+// std::list<std::shared_ptr<class AActor>> BeginplayList;
+// std::list<std::shared_ptr<class AActor>> BeginplayList;
+// 
+// 언리얼에선 GameMode는 GameModeBase를 상속받는다.
+// 우린 AActor를 상속받도록 만든다.
+// 그리고 AActor는 BeginPlay와 Tick을 가진다. (virtual)
+//
+// Level에서 SpawnActor로 Actor를 불러낸다.
+// UEngineCore에 "Level.h" 추가.
+// 
+// ULevel::Tick(flaot _DeltaTime)
+// : ...BeginPaly에 있다가 AllActors로 이동한다. 
+// 
+// 주인공 캐릭터는 무조건 APawn을 상속 받는다.
+// class Pawn : public AActor
+// 
+// 다른 .h에 PreCompile.h를 넣으면... 엄청난 순환참조 발생
+// 절대 하지 말기. cpp에나 넣으렴.
+// 
+// IsActive()... ranged for는 바꾸지 않으면서 전부 돌려준다는 의미니까 내부에서 수정이 불가능하다.
+// 따라서 Iterator를 사용한다. 
+// 
+// UEngineCore에 EngineFrame, EngineEnde()을 만든다.
+// EngineFrame안에 Tick이 있고, LevelChange()가 호출되면 Level이 교체된다. 
+// CurLevel->LevelChangeStart()
+// 
+// CurLevel이 아니라 NextLevel을 바꾸는 방식.
+// Tick을 돌던 와중에 Level이 바뀌면 곤란하니까.
+// 
+// 이젠 Super가 아니라 부모를 직접 호출해야 한다.
+// void ATempGameMode::Tick(float _DeltaTime)
+// {
+//     AActor::Tick(_DeltaTime);
+// }
+// 
+// GetWorld()가 있어야 했던 이유?
+// 
+// ULevel* World;
+// 아무나 SetWorld를 하면 안 된다.
+// friend class ULevel 선언.
+// 
+// Level이 만들어지지 않은 Actor는 만들어 질 수 없다.
+// Actor가 만들어져야만 Level이 세팅될 수 있다.
+// 힙 영역에 sizeof(AActor)를 만단다. 
+//
 
 // 언리얼에선 std 함수 안 쓴다. (vector, map, shared_ptr 등...)
 // TObjectPtr은 언리얼의 shared_ptr.
