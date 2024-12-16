@@ -32,10 +32,6 @@
 // 여차저차 콘솔창을 띄우는 구조를 만들었다.
 // 
 
-// 
-//
-//
-
 // IContentsCore
 // (UEngineLevel을 ULevel로 수정했다.)
 // 
@@ -87,4 +83,14 @@
 // TObject<USceneComponent> RootComponent; (언리얼)
 // RootComponent를 상속받을 뿐.
 // 
-//
+// SceneComponent와 ActorComponent를 분리해서 관리한다.
+// 
+// 부모 자식 관계에서 로컬.
+// 자식의 월드(실제)값이 아닌 부모를 기준으로 가지는 값.
+// 언리얼에선 Relative라고 한다.
+// 
+// 자식은 부모의 모든 값을 물려받는다. (크기, 위치 등...)
+// 
+
+// 언리얼에선 std 함수 안 쓴다. (vector, map, shared_ptr 등...)
+// TObjectPtr은 언리얼의 shared_ptr.
