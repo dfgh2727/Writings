@@ -17,11 +17,24 @@
 // _tfreopen_s();  콘솔창과 연결된 입출력 핸들을 내가 지정한 것으로 바꾼다
 // (_tfreopen로 쓸 수도 있으나 옛날 방식이고 경고가 뜰 수 있다.)
 // 
-// _tfreopen(_T("CONOUT$"), _T("w"), stdout);
+// _tfreopen(_T("CONOUT$"), _T("w"), stdout); (= 콘솔창의 기본 출력 버퍼를 stdout이라는 것으로 변경)
 // _tfreopen(_T("CONIN$"), _T("r"), stdin);
 // _tfreopen(_T("CONERR$"), _T("w"), stderr);
+// ... 그러나 위 내용이 통하지 않는다. 이유가 뭘까.
 // 
-// (-- 잠깐 보류 --)
+// 입출력 버퍼란?
+// 윈도우 창에서 입출력 버퍼를 HWND가 알아서 관리해주지만...
+// CONOUT$ 출력버퍼, CONIN$ 입력 버퍼를 의미
+// 
+// pCout은 옛날식 출력 버퍼. stdout은 현재 스타일.
+// 둘이 다르지 않다. (if(pCout ! = stdout)의 내용의 코드가 실행되지 않음)
+// 
+// 여차저차 콘솔창을 띄우는 구조를 만들었다.
+// 
+
+// 
+//
+//
 
 // IContentsCore
 // (UEngineLevel을 ULevel로 수정했다.)
