@@ -56,11 +56,22 @@
 // 
 
 // 충돌은 인터페이스 변함없이.
-// FTransform은 대거 편집된다.
+// FTransform은 대거 편집된다. 이제는 3D니까.
+//
+// 중간과정을 다 보라는 의미로 FMatrix의 내용을 전부 따로 만들었다.
+// (원래는 한번에 다 곱하기 때문에 FMatrix WVP로 만든다.)
 // 
-
+// .
+// .
+// .
+// 
 // AActor
 //
-// 기하 구조를 생각해보자!
+// 언리얼에서 Actor는 트랜스폼을 가지지 않는다.
+// 컴포넌트 구조상 위치와 같은 값은 가지지 않는다.
+// 
+// Transform을 가지는 컴포넌트는 USceneComponent 뿐이다.
+// TObject<USceneComponent> RootComponent; (언리얼)
+// RootComponent를 상속받을 뿐.
 // 
 //
