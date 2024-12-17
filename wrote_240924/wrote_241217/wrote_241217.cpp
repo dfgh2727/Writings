@@ -94,5 +94,60 @@
 // 
 //  SceneComponent를 상속받는 클래스는 shared
 //  ActorComponent를 상속받는 클래스를 list로 관리.
-//  
+
+
+//  헤더... 해당하는 클래스의 멤버함수를 썼는가가 중요하다.
+//  만약 포인터만 쓴다면 헤더를 추가할 필요 없다. 전방 선언만으로도 충분하다.
+//
+ class Renderer
+ {
+
+ };
+
+  Renderer TheRenderer /*= Renderer()*/; //->클래스의 함수를 불러낸다. 헤더가 필요.
+ 
+  Renderer* ThePtr; //8바이트로 크기가 정해져 있다. 헤더 필요 없다.
+ 
+  ThePtr->Component = this*; // Renderer 안에 Component가 있는지 확인해야 한다. 헤더가 필요.
+
+//
+//  템플릿은 헤더에 구현해야 한다.
+//  인라인과 헤더 템플릿...
 // 
+//   define과 inline?
+//   스택이 생성되면 느려진다...
+//   새로 함수를 만들면 스택이 생성된다.
+//   define은 단순히 함수 치환이기 때문에 새로운 메모리 영역을 만들지 않는다.
+// 
+//   inline은 복붙한다. 함수를 실행시키지 않는다.
+// 
+
+// Renderer
+// Render()는 아무나 쓸 수 없게 private으로.
+// 
+// ActorComponent
+// BeginPlay 이전에 InitializeComponent 실행
+// 
+// pair...map 안에 key와 class를 한데 묶어 보관하는 클래스
+// 
+// Actor의 BeginPlay 이후 Component의 BeginPlay 실행
+// 시점 함수는 엔진이 실행시켜주는 엔진. 내가 직접 실행시키면 안 된다.
+// 
+// shared_ptr을 지울 때는 일반 ptr로서 지울 수 없다. shared_ptr를 지워야 한다. 
+// dynamic cast는 일반 포인터를 변환시킨다. shared_ptr은 아니다.-> dynamic_pointer_cast 사용
+// 
+// shared_ptr은 map과 비슷한 구조로 ptr를 관리...따라서 느리다.
+// int가 내부에 자신의 Ref를 세는 값을 가질 수 있나? 아니다.
+// 클래스는 가능하다.  = 침습형. 자기 자신 안에 카운트가 존재한다. 
+// 
+// class UObject : 
+// {
+//    template <>
+//      ...UObject가 아닌 shared_ptr를 return하게 만든다.
+//    
+// };
+// 
+
+// 렌더링 파이프?
+//
+//
