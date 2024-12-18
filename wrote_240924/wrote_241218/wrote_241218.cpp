@@ -186,4 +186,21 @@
 // 셋팅되기 위해 만들어진 점을 vertexBuffer라고 한다.
 // 점을 최적화하기 위한 IndexBuffer
 // 그리고 점의 구성을 알아야 한다.
+// 
+// URenderer::InputAssembler1Init()
+// {
+//     버텍스 버퍼를 만들자.
+//     일정 크기의 메모리를 그래픽카드에게 할당해 달라고 요청한다.
+//     (사실 다렉에서는 위와 같은 류의 함수를 다 buffer라고 한다.)
+// }
+// 
+// 점을 만들어서 그래픽 카드에게 넘기자. (CreateBuffer())
+// 점들의 정보를 전달해야 한다.
+// BufferInfo.ByteWidth = 사이즈는 몇?
+// BufferInfo.BindFlags = 용도는?
+// BufferInfo.CPUAccessFlags = CPU에서 수정할 수 있나?
+// BufferInfo.Usage = 메모리 옵션...GPU에서 읽기만 가능한가? 아니면 동적으로 GPU에서 CPU로 전송할 수 있나?
+// 
+// 그리고 VertexBuffer Release()하고 Level들을 nullptr 처리해서 leak 방지.
+// 
 //
