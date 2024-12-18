@@ -108,5 +108,82 @@
 // 
 // 렌더링 파이프라인 연관 키워드
 // : mxaa, fxaa, anti-aliasing, pixel shader
+
+
+// CreateSwapChain()
+// 무언가를 만든다...Device에서 불러온다.
+// Device가 생성된 뒤에 실행되어야 한다.
+// 
+// SwapChain도 leak 발생을 막기 위해 Release();
+// 
+// SwapChain은 일종의 HDC라고 할 수 있다.
+// HDC는 bitmap에 대한 수정권한.
+// (bitmap은 색의 배열들... FColor Arr[100][100];)
+// 
+// 다렉의 bitmap은 id3d11texture2d*
+// SwapChain내부에 id3d11texture2d*가 있다.
+// id3d11texture2d* 자체로는 할 수 있는것이 많지 않다.
+// 수정 권한을 얻어야 한다.
+// 
+// ID3D11RenderTargetvView* RTV
+// 
+// SwapChain안의 Texture가 백버퍼다.
+// Texture의 수정권한을 만들어야 한다.
+// 
+//          winAPI로 생각하면...       HBITMAP                   HDC
+// Device->CreateRenderTargetView(DXBackBufferTexture, nullptr, &RTV)
+// 
+// 렌더링하기 전에 백버퍼를 채운다.
+// 리소스를 만드는게 아니라 그리는 것이므로 Context를 통해서.
+// 
+// RenderStart();
+// {
+//    Context->ClearRenderTargetView(RTV, ClearColrer.Arr1D) 
+//    화면을 파란색으로 채워보자.
+// }
+// 
+// 
+// RenderEnd();
+// {
+//     HRESULT Result = SwapChain->Present(0, 0);
+//     내가 지정한 hwnd에 다렉 렌더링 결과를 출력해라.
+// }
+// 
+// 그리고 ULevel::Render()를 실행시키면
+// 파란 화면이 뜬다. 
+
+// HDC를 직접 쓴 적은 없다. WinAPI에서는 EngineWinImage를 통해 관리했다.
+// 이번 DX도 마찬가지...관리하는 클래스를 만든다...언젠가
+
+// 렌더링 파이프라인
+// 
+// 렌더링 관련 함수는 최종적으로 Draw어쩌구()를 제외하고 순서 의미 없다.
+// 
+// URenderer::BeginPlay()
+// {
+//     IASetVetexBuffer()   버텍스 버퍼 셋팅 (input assembler)
+//     RSSetState()         레스터라이저 셋팅
+//     .
+//     .
+//     .
+//     위 함수들...순서 의미 없다. 일종의 옵션처럼.
+//     최종적으로 Draw()가 실행된다는 것만 고정.
+// 
+//     렌더러가 몇개인가 = DrawCall 횟수
+// }
+// 
+// 만들어지는 리소스는 전부 그래픽카드에 저장된다.
+// 
+// 렌더링 파이프라인...일부는 필수고 나머지는 선택적이다.
+// (필수) Input Assembler1⋅2, Vertex, 레스터라이저, Pixel, OutputManager
+// (선택사항) Hull Shader, ..., Geometry Shader 
 // 
 
+// Input Assembler
+//
+// 결론적으로, Input Assembler1은 점을 셋팅하는 단계
+// 
+// 셋팅되기 위해 만들어진 점을 vertexBuffer라고 한다.
+// 점을 최적화하기 위한 IndexBuffer
+// 그리고 점의 구성을 알아야 한다.
+//
