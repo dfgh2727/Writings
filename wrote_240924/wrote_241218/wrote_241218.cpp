@@ -71,4 +71,42 @@
 //         
 // ScInfo.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT | DXGI_USAGE_SHADER_INPUT;
 //                      여기에 그릴 수 있고               쉐이더에서 데이터로도 사용할 수 있다 
+// 
+// ScInfo.SampleDesc.Quality = 0    퀄리티는 필료없다. 
+// ScInfo.SampleDesc.Count = 1      점을 한개로
+// 
+// ScInfo.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD
+// 백버퍼가 여러개 있을 때 순서는 지정하지 않고 준비가 빠른 순으로
+// 
+// ScInfo.Flag
+// 선생님은 신경도 안 씀. 궁금하면 검색해보라.
 //
+
+
+// 핸들을 주는 인터페이스...왜 release 해야할까?
+// 
+// 결론적으로 지우지 않으면 leak이 발생한다.
+// 
+// void CreateDevice(Device** _Device)
+// {
+//     (*_Device) = new Device();
+// }
+// 
+// 동적할당이므로 안 하면 leak 발생.
+//
+
+// 샘플링
+// 
+// 어떤 해상도의 모니터에 도형을 놓는다고 생각해보자.
+// 그 도형에 닿은 픽셀의 색깔을 지정하는 것을 말한다.
+// 이때 픽셀이 도형에 닿은 정도로 색의 농도를 지정한다.
+// 
+// 도형이 픽셀의 샘플링 체크점과 많이 닿을수록 농도가 진하다.
+// 
+// 원하는 스타일에 따라 샘플링의 정도를 조절해야 한다.
+// (가령 도트겜은 샘플링을 사용하기엔 부적절하다.)
+// 
+// 렌더링 파이프라인 연관 키워드
+// : mxaa, fxaa, anti-aliasing, pixel shader
+// 
+
