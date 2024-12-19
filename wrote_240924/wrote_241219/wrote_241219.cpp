@@ -27,6 +27,7 @@
 
 
 // EngineShader
+// (빌드 안 한다!)
 // 
 // Vertex에 World행렬 처리를 한다.
 // CPU에서 for문을 돌려가서 실행할 것을 그래픽 카드에 맡기는 것.
@@ -59,9 +60,38 @@
 // 
 // }
 // 
+// (VertexShader5.0을 사용한다.)
 // 
+// #ifdef _DEBUG
+// Flag0 = D3D10_SHADER_DEBUG;
+// 다렉11이더라도 디버그는 10이다. 따로 바뀌지 않은 듯 하다.
+// 
+// #endif
+// Flag0 |= D3DCOMPILE_PACK_MATRIX_ROW_MAJOR;
+// 행렬을 집어 넣는다. 근데 전치행렬(Transpose)로 넣음.
+// 따라서 뒤집지 않게 설정을 해준다.
+// 
+// ID3DBlob.ShaderCodeBlob
+// ID3DBlob.ErrorCodeBlob
+// 
+// Blob 중간 결과물...(주석 삭제, 공백 제거 등)
+// 
+// 중간 빌드가 실패한다면 에러 메시지 창이 뜬다.
 // 
 // 
 
 // HLSL을 VisualStudio가 인식하길 원한다면...확장관리에서 서포터를 설치하자.
 
+// ComPtr
+// Ref 카운팅을 기반으로 Release를 자동으로 해준다.
+// nullptr 처리만 해주면 된다.
+//
+
+// 헤더 파일을 객체로 만들 수 있다.
+// (BigSizeShader)
+// 
+// #ifdef... 어딘가에 '...'가 정의되어 있다면 실행됨
+// #elseif '...'을 안 쓰는 경우 실행됨
+// 
+// 위의 방식으로 외부에 조건을 정의하면
+// 조건에 따라 설정을 활성화하거나 비활성화 시킨다.
