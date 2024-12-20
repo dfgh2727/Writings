@@ -50,4 +50,17 @@
 // CameraActor
 // EngineCamera를 Component로 가진다.
 // CameraActor를 통해 Camera를 실행시킨다. 
+
+
+// 게임모드에서...
+// 반드시 카메라의 위치를 정해줘야 한다.
+// 
+// URenderer::Render()
+// {
+//     Renderer는 Camera로부터 view와 projection을 받아 계산한다.
+// }
+// 
+// CPU에서 계산한 값을 쉐이더에게 넘기는 방법...상수버퍼
+// 
+// 
 // 
