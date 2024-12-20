@@ -34,5 +34,20 @@
 // Camera는 어디에 있어야 할까.
 // Camera는 모든 단계중 최종적으로 실행되게 만든다.
 // 
+// 개념은 '카메라가 포착하기 때문에 Renderer가 보인다.'에 가깝다.
+// 이젠 Renderer를 실행시키는게 아니라 Camera들을 실행시킨다.
 // 
-//
+// UEngineCamera
+// 카메라가 바라보는 Renderer들을 관리한다.
+// 
+// 0번 카메라(main camera)는 기본적으로 만들어진다.
+// 
+// 
+// Camera는 Tick을 돌리긴 하지만 Actor는 아니다. UScenenComponent를 상속 받는다.
+// Render전에 Tick을 돌린다. 
+// view와 Projection
+// 
+// CameraActor
+// EngineCamera를 Component로 가진다.
+// CameraActor를 통해 Camera를 실행시킨다. 
+// 
