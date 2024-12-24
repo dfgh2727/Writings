@@ -61,3 +61,27 @@
 // 잘린 스프라이트의 이름과 크기, 위치를 가져와야 한다.
 // 키워드를 찾아서 그것을 기준으로 원하는 정보를 가져온다.
 
+//imgui 적용
+//
+// github를 찾아서 description에 사용법이 있으니 읽어보자.
+// 
+// 옵션을 master가 아닌 docking으로 하면 창이 합쳐진다.
+// 
+// UEngineGUI
+// ImGUI 관리 클래스
+// 
+// 현재 쓰고 있는 hwnd와 Device, Context로 내용을 수정해준다.
+// ImplWin32_ShutDown(), DestroyContext() 등으로 leak이 발생하지 않게 만듦
+// (impl 확장이라는 의미)
+// 
+// ImGUI...새로운 윈도우 창이 생김
+// static std::function<bool(어쩌구)> CustomProc;
+// 윈도우 창에 메시지가 전달될 때 원하는 기능을 실행할 수 있게 만들자. 
+// CustomProc을 넘겨받아 사용할 수 있게 만들었다.
+// 
+// ImGUI도 다렉을 이용해 렌더된다... 즉 렌더 파이프 라인을 통해 렌더된다.
+// 현재 만든 DX 프로젝트에서 실행중인 파이프 라인 단계와 별개로 다른 단계를 실행할 수 있다.
+
+
+
+
