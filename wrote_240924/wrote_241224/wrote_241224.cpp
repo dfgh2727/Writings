@@ -41,7 +41,12 @@
 // (가능하면 피하는게 좋다.)
 // 
 // (Renderer.cpp)
+// 같은 이미지를 사용하되 서로 다른 부분을 렌더하고 싶다?
 // 상수 버퍼(Sprite Const Buffer)를 이용해 값을 변경시켜서 렌더한다.
 // !인덱스가 겹치면 안 된다!
+// 
+// cbuffer FSpriteData : register()
+// {
+// }
 // void SetSpriteData(float4 _CuttingPos, float4 _CuttingSize);
 //
