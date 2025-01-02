@@ -50,7 +50,13 @@
 // 일종의 최적화다.
 // UEngineConstantBuffer::CreateOrFind(), 만들어진 상수버퍼를 찾거나 없으면 만든다.
 // 
-//
+// 특정 크기의 상수버퍼가, 특정 이름으로 만들어졌다면(contains())
+// return BufferMap[_Byte][_Name.Data];
+// 없다면 만든다.
+// std::shared_ptr<UEngineConstantBuffer>NewRes = std::make_ptr<UEngineConstantBuffer>();
+// 
+// EngineDeviceBuffer
+// BufferInfo를 가지게끔 부모를 만들어서 상속시켰다.
 //
 
 //  
