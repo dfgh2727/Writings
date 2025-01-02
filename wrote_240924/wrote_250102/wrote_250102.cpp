@@ -57,9 +57,17 @@
 // 
 // EngineDeviceBuffer
 // BufferInfo를 가지게끔 부모를 만들어서 상속시켰다.
-//
 
-//  
+// 보통 이미지 n가지를 렌더링 하고 싶다면 n개의 material을 만들어야 한다.
+// 즉 Renderer가 n개 있다면 material도 n개 있어야 한다.
 // 
+// UEngineShaderResources안에 material에 대한 정보가 있다.
 // 
+// 인스턴싱...동일한 material을 쓰는 n개의 사물을 한꺼번에 그린다.
+// 결과는 사물들의 위치도 동일하다... 어떻게 해결할까
+// n개의 transform 데이터를 만들어서 보내야 한다. 
+// 
+// 행렬을 쓰지 않겠다고 struct를 수정하면
+// 수정할 때마다 새로운 struct를 만들어야 하니...메모리 낭비다.
+// 수정하지 않는 것을 권한다.
 // 
