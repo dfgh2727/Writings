@@ -70,4 +70,21 @@
 // 행렬을 쓰지 않겠다고 struct를 수정하면
 // 수정할 때마다 새로운 struct를 만들어야 하니...메모리 낭비다.
 // 수정하지 않는 것을 권한다.
+
+
+// emplace_back()
 // 
+// 내부에서 placement new를 통해서 복사를 안해도 되게 최적화를 해주는 문법.
+// c++14부터 가능.
+
+// Renderer는 셋팅만, 실질적인 설정은 하위 리소스에서 해야 한다. 
+//
+
+// AlignedByOffset 
+// format들을 나열한다고 생각해보자.
+// 0바이트, 16바이트, 32바이트...
+// (Position, textcoord, color가 모두 16바이트니까)
+// 
+// 유일하게 inputlayout은 material과 mesh 둘 다 셋팅되었을때 설정할 수 있다.
+//
+//
