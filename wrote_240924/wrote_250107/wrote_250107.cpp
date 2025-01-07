@@ -18,7 +18,7 @@ int main()
 // 
 
 // 카메라를 먼저 만들어야 Renderer를 만들 수 있다는걸 명심하자.
-// MSGASSERT("")
+// MSGASSERT("존재하지 않는 카메라에 랜더러를 집어넣으려고 했습니다.")
 // 
 // CollisionProfile을 만들어야 충돌 그룹을 만들 수 있다.
 // GetWorld()->CreateCollisionProfile("Monster")
@@ -31,4 +31,6 @@ int main()
 // AABB와 마찬가지로 박스를 이루는 세 면은 서로 수직이지만
 // 해당 면의 노말 벡터가 X Y Z와 일치하지 않는 박스이다.
 // (https://handhp1.tistory.com/6 )
+// 
+// 
 // 
