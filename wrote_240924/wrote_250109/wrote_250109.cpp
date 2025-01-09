@@ -39,7 +39,8 @@
 // 
 // ImGUI창을 focus한 상태일 때 윈도우 창을 무시하게 만든다.
 // WM_KILLFOCUS
+// (단 ImGUI 도킹버전의 문제로 
+//  윈도우 창과 ImGUI창이 겹쳐져 있을때 focus 선택이 안 된다.)
 // 
 // 현재 WndProc은 static 함수...
-// 
-// 
+
