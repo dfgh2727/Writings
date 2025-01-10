@@ -51,8 +51,9 @@
 // 현재 GM2DX의 TitleGameMode.ccp와 같은 상태는 바람직하지 않다.
  
 
+// Isometric의 경우 타일의 x index가 증가하면 x, y 위치 모두 증가한다.
+// 단 현재 엔진에서 y좌표가 뒤집혀 있어서 식에 + 적용
+// +(_Index.Y * TileSize.hY)
 // 
-// 
-// 
-// 
+// _Pos/TileSize 인덱스로 변경하는 식
 // 
