@@ -105,6 +105,8 @@ SOCKET AcceptSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 // bind(AcceptSocket, (const sockaddr*)&Add, sizeof(SOCKADD_IN))
 // ip6를 사용하면 size가 달라질 수 있다.
 // 
+// 접속 실패시 SOCKET_ERROR
+// 
 // 서버는 리슨을 호출했을 때 열린다.
 // listen(AcceptSocket, BackLog)
 // 이때 방화벽에서 서버에 접속 가능허용 여부를 물어본다.
@@ -141,8 +143,6 @@ SOCKET AcceptSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 //
 // 클라는 바인드를 할 필요가 없다.
 // 커넥트가 내부에서 바인드를 실행해준다.
-//
-//
 
 // 서버는 디버깅 시 '여러 시작 프로젝트'로 
 // 클라와 서버를 동시에 확인할 수 있다.
@@ -154,4 +154,30 @@ SOCKET AcceptSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 // [로그인 서버] - [플레이 서버]
 // 로그인 서버에서 접속자를 대기시킨다.
 // 로그인에 성공하면 플레이 서버에 접속 가능하다.
+
+ SOCKET ClientSocket = accept(AcceptSocket, (sockaddr*)&ClientAdd, &AddressLen);
+// accept의 return값은 접속자와의 연결을 의미하는 socket.
+// ClientSocket == 접속자
+// 
+ recv(ClientSocket, &Packet[0], Packet.size(), 0);
+// 상대방이 보낸 데이터를 받는다.
+// 동기함수다. 즉, 상대방이 패킷을 보낼때까지 대기한다.
+// 따라서 멀티쓰레드가 필수다. 그렇지 않으면 recv()에서 멈춰서 무한대기 할 수도 있다.
+
+
+// OSI7계층과 프로토콜
+// 
+// 프로토콜:
+// 전송되는 데이터(패킷)의 구성에 대한 약속.
+// 프로토콜로 패킷에 규격과 규칙을 두어 원활한 통신이 가능하다.
+// 상대의 요청을 정확하게 구분할 수 있게하기 위한 서버와 클라이언트간의 약속
+// 
+// 수업시간에 예로 든 데이터 타입(enum class), 데이터 내용등에 대한 프로토콜은 
+// 응용계층의 프로토콜이라 할 수 있다.
+// 전송에 필요한 것은 내용뿐 아니라 IP, port도 있다. 전송계층의 프로토콜이다.
+// 
+// 여차저차 패킷을 보낼때 데이터에 여러가지 정보를 추가한다.
+// 
+//
+//
 
