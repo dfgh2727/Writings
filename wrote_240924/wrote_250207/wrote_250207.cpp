@@ -56,3 +56,59 @@
 // serializer로 데이터를 담아서 패킷을 전송하자. 
 // _Protocol->serializer
 
+// 이번 프로젝트의 프로토콜과 인터페이스:
+// 
+// SessionToken = 0은 서버다. 
+// 
+// StartProtocol.SetSessionToken(Server->SessionTokenCreator++);
+// StartProtocol.SetPacketType(EEnginePacketType::UsserAccessPacket)
+// StartProtocol.Serialize(Ser);
+// 먼저 서버가 접속자에게 세션토큰을 전송한다.
+// 전송 후 클라이언트가 토큰을 받고 패킷을 보내면 서버는 클라가 준비가 됐음을 확인한다.
+// 
+// UsserAccessPacket = -2
+// 패킷 타입이 음수인 경우는 엔진만 사용한다.
+// 유저가 사용 불가능한(컨텐츠에서 사용 불가능한) 패킷타입이다.
+// 
+// 여러곳에서 동기화 가능하게 atomic을 사용해서 토큰을 만든다.
+// 
+// 서버는 보통 패킷 자동화 시스템이 있지만
+// 우리는 없으니(...) 직접 패킷 타입을 지정해야 한다.
+//
+// recv를 받았다는 것은 serializer에 데이터가 들어왔다는 뜻.
+// 이 때 패킷타입만 확인하고 싶으니 (읽지말고, ReadOffSet의 변화 없이)
+// SeekData()라는 함수를 만든다.
+// 
+// int TempPacketType = Ser.SeekData<int>();
+// 
+// if( 0 > TempPacketType)
+// {
+// 
+//   continue;
+// }
+//  
+// 
+// bool IsNetStart()
+// {
+//   
+// }
+// 이제 앞의 과정들을 거쳐서 SessionToken != -1이면 준비가 된거다.
+// 
+// 패킷의 크기는 Serialize과정이 다 끝나야 알 수 있다.
+// StartProtocol.SerializePacket(Ser);
+
+//    A 컴퓨터              B 컴퓨터
+//  _____________         _____________
+// |    [플]     |  ~~~  |    ...[플]  |
+// |_____________|       |_____________|
+// 
+// 플레이어가 움직인다 -> 클라이언트가 처리 (패킷 타입, 패킷 크기, 세션 토큰, 오브젝트 토큰...) -> 
+// 이때 코옵중인 A컴퓨터와 B컴퓨터 모두에서 플레이어를 움직이려면 
+// 플레이어를 확인하는 오브젝트 토큰이 필요하다.
+// 
+// 동기화 될 필요가 없는 object들은 ObjectToken이 필요없다. 
+// ObjectToken이 -1이면 동기화 될 필요없는 오브젝트다. (배경의 나무라던가...)
+// UNetObject  
+//
+
+
