@@ -72,5 +72,37 @@
 // template<typename PacketType>
 // void AddHandler(int _Type, std::function<>_callback)
 // 따라서 어떤 타입의 패킷이든 받을 수 있다.
+
+// TCP이기 때문에 데이터를 일부만 받을 수도 있다.
+// 프로토콜에 의하면 16까지 받아야 데이터를 처리할 수 있으므로
+// 16바이트 보다 작으면 continue.
 // 
+// if(16 > Ser.GetWriteOffSet())
+// {
+//		continue;
+// }
+// (반대로 UDP는 데이터를 한번에 받으므로 버퍼의 크기는 받을 데이터 크기 이상이어야 한다.)
+// 
+// 다시 TCP로 돌아와서...
+// 패킷의 총 데이터 크기가 버퍼보다 클 경우 
+// 패킷을 처리하고 버퍼에서 그 만큼 데이터를 밀어낸다.
+// 
+// int TempPacketSize = Ser.SeekData<int>(4);
+// 프로토콜에 의해 패킷 중 앞에 있는 패킷 타입, 패킷 크기, 세션 토큰, ...등을 읽어낸다.
+// 그리고 이전에 읽은 패킷의 크기를 고려해 오프셋 관련 함수를 만든다.
+// 
+void UEngineSerializer::ReadOffsetRemain()
+{
+	//가령           32바이트 중   4바이트 만큼 읽었다.
+	int RemainSize = WriteOffset - ReadOffset;
+	memcpy_s(&Data[0], RemainSize, &Data[ReadOffset], );
+}
+//       ______________ _____________________________
+// 버퍼:    읽은 패킷      앞으로 읽어야 할 패킷
+//       |_____________|_____________________________|  
+//                     ^
+//           (WriteOffSet의 위치)
+// 그리고 다시 데이터는 WriteOffset 위치 부터 읽는다.
+//
+
 
