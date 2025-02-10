@@ -105,4 +105,22 @@ void UEngineSerializer::ReadOffsetRemain()
 // 그리고 다시 데이터는 WriteOffset 위치 부터 읽는다.
 //
 
+// 직접 움직여야 할 캐릭터와 서버폰의 입력 분리를 위해 언리얼에서는 컨트롤러가 처리한다.
+// 게임모드, 컨트롤러... 모두 네트워크 때문에 생긴 개념이다.
+// 
+// 현재 프로젝트에 컨트롤러가 없으므로 다음과 같이 처리한다.
+// void NetObject::SetControl();
+// {
+//		IsControlValue = false;
+// }
+// 
+// if(true == IsControl()) ...IsControlValue가 true일 때 입력을 받는다.
+// {
+//		움직임 입력 
+// }
+// 
+// NetObject가 없으면 만들어버린다. 
+// (서버에 동기화 될 존재가 없으면 만든다.)
+// 
+//
 
