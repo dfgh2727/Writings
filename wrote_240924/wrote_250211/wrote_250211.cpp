@@ -36,4 +36,41 @@
 // 	   그다지 좋은 방법이 아니다.
 //   
 // DB 프로그램이 해쉬 분야의 끝판왕이다.
+
+// 112_TemplateVar
+// 
+void VarFunction(int Value, ...)
+{
+
+}
+// 가변인자의 단점?
+// 인자의 갯수를 찾을 수 없다.
+// 
+// 템플릿 가변인자는 가변인자의 불확실성을 제거한 것이다.
+// 자료형을 체크해준다. 
+// 그러나 컴파일 시간이 늘어난다는 단점이 있다.
+template<typename ...Arg>
+void TemVarFunction(Arg ... _Arg)
+{
+
+}
+// 템플릿은 '함수를 만드는' 함수다.
+// template 자체의 의미는 없고 override 하듯이 함수가 만들어진다.
+// Arg도 마찬가지다.
+// 
+// 템플릿 가변인자는 2가지 방식으로 사용할 수 있다.
+// 1. 인자를 그대로 전달한다.
+//    이 경우 인자를 확장시킨다고 한다. (그대로 집어넣음)
+//    서버에서 지양하는 방법이다. 컴파일 시간이 너무 오래 걸리기 때문이다.
+      template<typename ...Arg>
+      void TemVarFunction(Arg ... _Arg)
+      {
+      	
+      	   NewTestFunc(_Arg...);
+      }
+//    TempVarFunction(10, 20);
+//    이 경우 NewTestFunc(10, 20)이 된다.
+// 
+// functional에서 bind를 살펴보면 R-Value Ref로 템플릿 가변인자가 있음을 확인할 수 있다.
+// 
 //
