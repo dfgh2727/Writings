@@ -57,6 +57,26 @@
 
 // 블루 프린트
 // 
+// 비주얼 스튜디오에서 원하는 함수를 코드로 작성하고 블루프린트에서 실행시키고 싶다?
+// 언리얼이 함수를 블루프린트에서 사용가능하게끔 인식하게 만들려면
+// 언리얼 프로퍼티를 지정해줘야 한다. 그 프로퍼티가 UFunction이다.
+// UFUNCTION(BlueprintCallable)
+// void TestFunction();
+// 프로퍼티를 붙인 후 호출 옵션(BlueprintCallable)을 붙여주면 된다.
 // 
+// UFUNCTION(BlueprintCallable, category)
+// 프로퍼티들에 대해 알고 싶다면 검색해보자.
 // 
+// 코드로 변수를 만들고 블루프린트에서 편집하고 싶다면...
+// UPROPERTY()
+// int TestValue = 0;
+// UPROPERTY()도 옵션이 있다. (UFunction보다 훨씬 많다.)
+// 아래와 같은 지정자들을 통해 속성을 부여할 수 있다.
 // 
+// EditAnywhere, 에디터에서 값을 변경 가능하다.
+// visibleAnywhere, 값을 바꿀 수 없다.
+// BluePrintReadWrite, 블루 프린트에서 값을 변경할 수 있다.
+// BluePrintReadOnly, 볼 수만 있다. 값을 바꿀 수 없다.
+// 
+// 메타데이터 지정자 = 일반 지정자 이외에 몇가지 사소한 옵션을 지정한다.
+//
