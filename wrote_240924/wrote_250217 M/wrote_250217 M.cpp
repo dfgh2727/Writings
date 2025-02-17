@@ -1,9 +1,6 @@
 ﻿// wrote_250217 M.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
 //
 
-#include <iostream>
-
-
 // 언리얼은 일종의 parsing 기능으로 코드를 인식하고 함수를 구현한다.
 // (UPROPERTY, UFUNCTION)
 
@@ -24,10 +21,21 @@
 //                   | /
 //                   |/____ (Y)
 // 
-// 
+// Actor를 spawn할 때 첫번째 인자로 UClass를 넣어야 한다. 
+// UClass를 CDO가 조사한 클래스 정보다. 따라서 spawn할 때 마다 클래스에 대한 정보를 요구한다.
 
+// Actor를 어떻게 스폰할까?
 // 
+// 1) 지정된 UClass를 사용해서 스폰한다.
+// 2) C++ native에서 블루 프린트의 경로를 사용한다. (-> 꽤나 번거로운 방법)
 // 
+// std::vector의 push_back = TArray의 Add()
+//               size()               Num()
+//               empty()              IsEmpty()
+//               reserve()            Reserve()
+//               resize()             SetNum()
+//
+// data table
 // 
-// 
+// UAsset (언리얼 에셋)
 // 
