@@ -72,7 +72,6 @@
 // 한글이 깨질 수 있으므로 UTF-8로 저장하자.
 
 // enum 비트마스킹
-// 
 // 예를 들어 아래의 경우 8가지 수를 사용할 수 있다.
 // 00000001,00000010, ... ,100000000
 // 
@@ -80,7 +79,32 @@
   UPROPERTY(VisibleAnywhere, Catagory = "Data")
   FRandomStream = Random;
   Random.RandomRange(n, m) // n부터 m까지의 수가 나온다.
-//
+
+
 // Cast()
 // 언리얼에서 형변환 가능한지 확인하는 함수
+// 
+// UCLASS와 UENUM은 다르다.
+// 
+// 블루프린트에서 템플릿은 사용 불가능하다.
+// C++로 만들자.
+// template<typename Enumtype>
+// static Array<Enumtype> GetAllEnum()
+// {
+//		
+// }
+// 
+// StateMachine
+// Entry...처음 StateMachine이 시작될 때 어떤 노드에 도착할 지 결정한다.
+// 노드 사이를 연결하는 링크를 더블클릭하면 Result(bool값)가 나온다.
+// 이 bool값을 state - 연산자로 연결할 수도 있다.
+// 또한 디테일 - 애니메이션에서 루프로 설정할 수 있다.
+//
+// 캐릭터의 Velocity를 기준으로 walk와 run을 정해보자.
+// 
+// 블루프린트 디버깅...preview blueprint instance
+// 
+// 서버 동기화...
+// 서버에 접속된 다른 PC에서 변수의 값이 변했을 때, 내 PC에 자동적으로 반영되는 것이 아니다.
+// 리플리케이션을 설정하자. 리플리케이션은 변수마다 설정해야 한다.
 //
