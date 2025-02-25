@@ -56,6 +56,31 @@
 // 반복하고 싶은 애니메이션을 선택하고 - 디테일 - 
 // 
 
+// enum (언리얼)
+// 블루프린트에서 enum을 만들 수 있지만 
+// enum하나당 만들 수 있는 블프는 1개.
+// 
+// 언리얼에서 enum사용시 반드시 uint8을 사용해야 한다.
+// 
+ UENUM(BlueprintType)
+ enum class EPlayerAnimation : uint8
+ {
+	Idle UMETA(DisplatName = "서있기"),
+	Run UMETA(DisplatName = "뛰기"),
+	Attack UMETA(DisplatName = "공격"),
+ }
+// 한글이 깨질 수 있으므로 UTF-8로 저장하자.
+
+// enum 비트마스킹
+// 
+// 예를 들어 아래의 경우 8가지 수를 사용할 수 있다.
+// 00000001,00000010, ... ,100000000
+// 
+// Random은 하나만 만들고 돌려쓴다. 
+  UPROPERTY(VisibleAnywhere, Catagory = "Data")
+  FRandomStream = Random;
+  Random.RandomRange(n, m) // n부터 m까지의 수가 나온다.
 //
-//
+// Cast()
+// 언리얼에서 형변환 가능한지 확인하는 함수
 //
