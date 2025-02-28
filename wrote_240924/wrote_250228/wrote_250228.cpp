@@ -27,12 +27,5 @@
 // 아이템 데이터에 직접 각도를 입력해주는 방법도 있다.
 // FQuat Rot = FQuat::MakeFromEuler(Item->GetItemData()->EquipAngle);
 // Item->SetActorRelativeRotation(Rot);
-// 
-// 언리얼의 회전은 
-// 
 
-// 
-// 
-// 
-// 
-// 
+// (오후에 UI 수업을 했다.) 
