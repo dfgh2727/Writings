@@ -4,7 +4,8 @@
 #include <iostream>
 
 
-// 
+// 이전까지 SpawnActor()를 하면 내부에서 GetWorld(), SetLevel()을 실행했다.
+// 그러나 나만의 구조체를 만들면 outer를 셋팅해야 한다.
 // 
 // 
 // 
