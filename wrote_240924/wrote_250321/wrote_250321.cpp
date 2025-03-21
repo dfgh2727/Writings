@@ -53,3 +53,40 @@
 // 
 // 볼륨 - 내비 모디파이어 볼륨을 통해 원하는 영역의 내비메쉬를 삭제할 수 있다.
 //
+
+
+class Parent
+{
+public:
+	void Func()
+	{
+		std::cout << "부모 함수 호출" << std::endl;
+	}
+
+	int Num = 0;
+};
+
+class Child : public Parent
+{
+public:
+	void Func()
+	{
+		std::cout << "자식 함수 호출" << std::endl;
+	}
+
+	int Num = 1;
+};
+
+void main()
+{
+	Parent TempParent;
+	Child TempChild;
+
+	//Parent* ParentPtr = &TempChild;
+	Parent* Ptr = &TempChild;
+	
+	//Child* ChildPtr = &TempParent; 불가능
+
+	Ptr->Func();	
+
+}
